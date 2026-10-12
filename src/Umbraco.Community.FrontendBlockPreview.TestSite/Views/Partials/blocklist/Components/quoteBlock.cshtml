@@ -1,0 +1,8 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockListItem>
+@{
+    var content = Model.Content;
+}
+<figure class="quote">
+    <blockquote class="quote__text">“@content.Value("quote")”</blockquote>
+    <figcaption class="quote__author">@content.Value("author")</figcaption>
+</figure>

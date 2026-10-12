@@ -1,0 +1,27 @@
+@using Umbraco.Community.FrontendBlockPreview
+@model Umbraco.Community.FrontendBlockPreview.Rendering.Razor.BlockPreviewViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" class="frontend-block-preview">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Block preview</title>
+    @foreach (var stylesheet in Model.Stylesheets)
+    {
+        <link rel="stylesheet" href="@stylesheet" />
+    }
+</head>
+<body>
+    @await Html.PartialAsync(Model.BlockViewPath, Model.Block)
+
+    @foreach (var script in Model.Scripts)
+    {
+        <script src="@script"></script>
+    }
+    <script src="@(Constants.AppPluginsPath)/frontend-block-preview.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+    branches: [ main, v17, v18, v19 ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build backoffice client
+        working-directory: src/Umbraco.Community.FrontendBlockPreview/Client
+        run: npm ci && npm run build
+
+      - name: Build
+        run: dotnet build src/Umbraco.Community.FrontendBlockPreview.slnx -c Release

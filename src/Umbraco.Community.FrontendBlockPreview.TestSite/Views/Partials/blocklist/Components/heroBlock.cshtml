@@ -1,0 +1,13 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockListItem>
+@{
+    var content = Model.Content;
+    var theme = (content.Value<string>("theme") ?? "Light").ToLowerInvariant();
+}
+<section class="hero hero--@theme">
+    <h1 class="hero__title">@content.Value("title")</h1>
+    <p class="hero__intro">@content.Value("intro")</p>
+    @if (content.HasValue("buttonText"))
+    {
+        <a class="button" href="#">@content.Value("buttonText")</a>
+    }
+</section>

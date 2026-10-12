@@ -1,0 +1,20 @@
+<Project>
+
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <!-- Package dependencies: ranges keep the package on a single Umbraco major -->
+  <ItemGroup>
+    <PackageVersion Include="Umbraco.Cms.Api.Delivery" Version="[17.0.0, 18.0.0)" />
+    <PackageVersion Include="Umbraco.Cms.Api.Management" Version="[17.0.0, 18.0.0)" />
+    <PackageVersion Include="Umbraco.Cms.Web.Website" Version="[17.0.0, 18.0.0)" />
+  </ItemGroup>
+
+  <!-- Test site -->
+  <ItemGroup>
+    <PackageVersion Include="Umbraco.Cms" Version="17.6.2" />
+    <PackageVersion Include="Microsoft.ICU.ICU4C.Runtime" Version="72.1.0.3" />
+  </ItemGroup>
+
+</Project>

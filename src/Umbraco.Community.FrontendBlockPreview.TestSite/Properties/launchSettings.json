@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "Razor (MVC)": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchUrl": "umbraco",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44370;http://localhost:5170",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "FrontendBlockPreview__Renderer": "Razor"
+      }
+    },
+    "Headless (Delivery API)": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchUrl": "umbraco",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:44370;http://localhost:5170",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "FrontendBlockPreview__Renderer": "DeliveryApi"
+      }
+    }
+  }
+}

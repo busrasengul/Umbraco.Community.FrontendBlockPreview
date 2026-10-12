@@ -1,0 +1,17 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockListItem>
+@{
+    var content = Model.Content;
+    var cards = content.Value<BlockListModel>("cards") ?? new BlockListModel([]);
+}
+<section class="features">
+    <h2 class="features__heading">@content.Value("heading")</h2>
+    <div class="features__grid">
+        @foreach (var card in cards)
+        {
+            <article class="card">
+                <h3 class="card__title">@card.Content.Value("title")</h3>
+                <p class="card__text">@card.Content.Value("text")</p>
+            </article>
+        }
+    </div>
+</section>

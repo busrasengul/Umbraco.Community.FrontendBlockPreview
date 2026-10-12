@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@Model.Name | Northwind Studio</title>
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <header class="site-header">
+        <a class="site-header__logo" href="/">Northwind Studio</a>
+        <nav class="site-header__nav">
+            <a href="/">Work</a>
+            <a href="/">Services</a>
+            <a href="/">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        @await Html.GetBlockListHtmlAsync(Model.Value<BlockListModel>("blocks"))
+    </main>
+
+    <footer class="site-footer">© Northwind Studio</footer>
+</body>
+</html>

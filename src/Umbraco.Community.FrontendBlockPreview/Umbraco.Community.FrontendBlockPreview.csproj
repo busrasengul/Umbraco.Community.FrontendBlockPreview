@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Umbraco.Community.FrontendBlockPreview</PackageId>
+    <Product>Umbraco.Community.FrontendBlockPreview</Product>
+    <Title>Umbraco.Community.FrontendBlockPreview</Title>
+    <Description>Preview Block List and Block Grid blocks in the Umbraco backoffice, rendered by your real frontend: a headless frontend through the Content Delivery API or your own API, or Razor views for MVC sites. Uses the editor's unsaved values.</Description>
+    <Authors>Busra Sengul</Authors>
+    <PackageTags>umbraco;umbraco-marketplace;block list;block grid;preview;headless;content delivery api</PackageTags>
+    <PackageProjectUrl>https://github.com/busrasengul/Umbraco.Community.FrontendBlockPreview</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/busrasengul/Umbraco.Community.FrontendBlockPreview</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README_nuget.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+
+  <!-- Central package management - no versions -->
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms.Api.Delivery" />
+    <PackageReference Include="Umbraco.Cms.Api.Management" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The client source is built by Vite into wwwroot; don't ship it -->
+    <Content Remove="Client\**" />
+    <None Remove="Client\**" />
+    <None Include="..\..\docs\README_nuget.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\docs\icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+</Project>

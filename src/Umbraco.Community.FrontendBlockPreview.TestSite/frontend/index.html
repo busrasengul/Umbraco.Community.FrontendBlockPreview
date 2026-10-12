@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Northwind Studio (headless)</title>
+  <link rel="stylesheet" href="http://localhost:5170/css/site.css" />
+  <!-- Hides the header and footer and reports the height, but only inside the backoffice preview -->
+  <script
+    src="http://localhost:5170/App_Plugins/FrontendBlockPreview/frontend-block-preview.js"
+    data-hide=".site-header, .site-footer"
+    defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-header__logo" href="/">Northwind Studio</a>
+    <nav class="site-header__nav"><a href="/">Work</a><a href="/">Services</a><a href="/">Contact</a></nav>
+  </header>
+
+  <main id="app"></main>
+
+  <footer class="site-footer">© Northwind Studio · headless demo</footer>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

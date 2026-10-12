@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3544B1"/>
+      <stop offset="1" stop-color="#1B264F"/>
+    </linearGradient>
+    <filter id="lift" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0B1233" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <!-- the frontend: a browser window -->
+  <g filter="url(#lift)">
+    <rect x="80" y="100" width="352" height="312" rx="36" fill="#FFFFFF"/>
+  </g>
+  <path d="M80 136 a36 36 0 0 1 36 -36 h280 a36 36 0 0 1 36 36 v28 h-352z" fill="#E6E9F7"/>
+  <circle cx="122" cy="132" r="9" fill="#F5C1BC"/>
+  <circle cx="150" cy="132" r="9" fill="#9AA3E0"/>
+  <circle cx="178" cy="132" r="9" fill="#C9CEF0"/>
+
+  <!-- blocks on the page -->
+  <rect x="112" y="190" width="288" height="34" rx="12" fill="#DCE0F5"/>
+  <rect x="112" y="356" width="196" height="24" rx="12" fill="#DCE0F5"/>
+
+  <!-- the previewed block, carrying the tilted Umbraco U -->
+  <rect x="112" y="240" width="288" height="100" rx="22" fill="#F5C1BC"/>
+  <g transform="rotate(-12 256 290)">
+    <path d="M230 262 v26 a26 26 0 0 0 52 0 v-26" fill="none" stroke="#1B264F" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- sparkle: it's live -->
+  <path d="M412 58 l11 27 27 11 -27 11 -11 27 -11 -27 -27 -11 27 -11z" fill="#F5C1BC"/>
+</svg>

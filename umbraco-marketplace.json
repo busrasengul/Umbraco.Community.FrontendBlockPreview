@@ -1,0 +1,33 @@
+{
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "AuthorDetails": {
+    "Name": "Busra Sengul",
+    "ImageUrl": "https://github.com/busrasengul.png"
+  },
+  "Category": "Editor Tools",
+  "Description": "Preview Block List and Block Grid blocks in the backoffice rendered by your real frontend, with the editor's unsaved values. Works with headless frontends on the Content Delivery API or your own API (React, Next.js, Angular, Vue, Nuxt, SvelteKit, Astro, plain JavaScript) and with MVC Razor views. Multisite aware.",
+  "DocumentationUrl": "https://github.com/busrasengul/Umbraco.Community.FrontendBlockPreview#readme",
+  "IssueTrackerUrl": "https://github.com/busrasengul/Umbraco.Community.FrontendBlockPreview/issues",
+  "LicenseTypes": [ "Free" ],
+  "PackageType": "Package",
+  "Screenshots": [
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/busrasengul/Umbraco.Community.FrontendBlockPreview/main/docs/screenshots/headless-all-blocks.png",
+      "Caption": "Every block on the page previewed by the real frontend, inside the block list editor."
+    },
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/busrasengul/Umbraco.Community.FrontendBlockPreview/main/docs/screenshots/live-edit.png",
+      "Caption": "Unsaved changes in the block editor show up in the preview straight away."
+    },
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/busrasengul/Umbraco.Community.FrontendBlockPreview/main/docs/screenshots/headless-mobile.png",
+      "Caption": "Switch between desktop and mobile widths."
+    },
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/busrasengul/Umbraco.Community.FrontendBlockPreview/main/docs/screenshots/razor-all-blocks.png",
+      "Caption": "MVC sites: each block rendered from its own Razor partial view."
+    }
+  ],
+  "Tags": [ "block list", "block grid", "preview", "headless", "content delivery api", "nuxt", "next.js", "react", "angular", "mvc" ],
+  "Title": "Umbraco.Community.FrontendBlockPreview"
+}

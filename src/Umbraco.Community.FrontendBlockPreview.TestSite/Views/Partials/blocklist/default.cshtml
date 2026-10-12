@@ -1,0 +1,6 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockListModel>
+@foreach (var block in Model)
+{
+    if (block?.ContentKey is null) { continue; }
+    @await Html.PartialAsync("blocklist/Components/" + block.Content.ContentType.Alias, block)
+}
