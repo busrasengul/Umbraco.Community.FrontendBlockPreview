@@ -20,18 +20,15 @@ namespace Umbraco.Community.FrontendBlockPreview.Rendering.DeliveryApi;
 public class DeliveryApiBlockPreviewRenderer : HeadlessBlockPreviewRendererBase
 {
     private readonly IApiContentResponseBuilder _apiContentResponseBuilder;
-    private readonly IPublishedValueFallback _publishedValueFallback;
     private readonly IOptionsMonitor<JsonOptions> _jsonOptions;
 
     public DeliveryApiBlockPreviewRenderer(
         IFrontendUrlResolver frontendUrlResolver,
         IApiContentResponseBuilder apiContentResponseBuilder,
-        IPublishedValueFallback publishedValueFallback,
         IOptionsMonitor<JsonOptions> jsonOptions)
         : base(frontendUrlResolver)
     {
         _apiContentResponseBuilder = apiContentResponseBuilder;
-        _publishedValueFallback = publishedValueFallback;
         _jsonOptions = jsonOptions;
     }
 
@@ -46,5 +43,5 @@ public class DeliveryApiBlockPreviewRenderer : HeadlessBlockPreviewRendererBase
     }
 
     protected override object? BuildResponse(BlockPreviewContext context)
-        => _apiContentResponseBuilder.Build(BlockPreviewPublishedContent.Create(context, _publishedValueFallback));
+        => _apiContentResponseBuilder.Build(BlockPreviewPublishedContent.Create(context));
 }

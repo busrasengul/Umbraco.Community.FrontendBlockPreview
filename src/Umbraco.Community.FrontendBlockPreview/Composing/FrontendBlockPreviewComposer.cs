@@ -43,8 +43,7 @@ public class FrontendBlockPreviewComposer : IComposer
             // Needs AddDeliveryApi() to have run first, which it does in the default Program.cs (before AddComposers)
             builder.Services.AddUnique<IApiContentPathResolver>(serviceProvider => new BlockPreviewApiContentPathResolver(
                 ActivatorUtilities.CreateInstance<ApiContentPathResolver>(serviceProvider),
-                serviceProvider.GetRequiredService<IHttpContextAccessor>(),
-                serviceProvider.GetRequiredService<IPublishedValueFallback>()));
+                serviceProvider.GetRequiredService<IHttpContextAccessor>()));
         }
         else if (string.Equals(renderer, Constants.Renderers.Razor, StringComparison.OrdinalIgnoreCase))
         {

@@ -15,16 +15,11 @@ public partial class BlockPreviewApiContentPathResolver : IApiContentPathResolve
 {
     private readonly IApiContentPathResolver _inner;
     private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly IPublishedValueFallback _publishedValueFallback;
 
-    public BlockPreviewApiContentPathResolver(
-        IApiContentPathResolver inner,
-        IHttpContextAccessor httpContextAccessor,
-        IPublishedValueFallback publishedValueFallback)
+    public BlockPreviewApiContentPathResolver(IApiContentPathResolver inner, IHttpContextAccessor httpContextAccessor)
     {
         _inner = inner;
         _httpContextAccessor = httpContextAccessor;
-        _publishedValueFallback = publishedValueFallback;
     }
 
     public IPublishedContent? ResolveContentPath(string path)
@@ -45,7 +40,7 @@ public partial class BlockPreviewApiContentPathResolver : IApiContentPathResolve
             return null;
         }
 
-        return BlockPreviewPublishedContent.Create(context, _publishedValueFallback);
+        return BlockPreviewPublishedContent.Create(context);
     }
 
     [GeneratedRegex($"^/?{Constants.PreviewPathSegment}/(?<token>[a-f0-9]{{32}})/?$", RegexOptions.IgnoreCase)]

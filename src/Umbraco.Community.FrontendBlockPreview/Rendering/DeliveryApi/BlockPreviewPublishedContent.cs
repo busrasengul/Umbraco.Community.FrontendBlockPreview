@@ -14,17 +14,16 @@ internal class BlockPreviewPublishedContent : PublishedContentWrapped
 
     public BlockPreviewPublishedContent(
         IPublishedContent content,
-        IPublishedValueFallback publishedValueFallback,
         IPublishedPropertyType propertyType,
         string previewValue)
-        : base(content, publishedValueFallback)
+        : base(content)
         => _previewProperty = new BlockPreviewPublishedProperty(propertyType, this, previewValue);
 
     /// <summary>
     /// The published page when there is one, so the Delivery API can build its route; the draft for new pages.
     /// </summary>
-    public static BlockPreviewPublishedContent Create(BlockPreviewContext context, IPublishedValueFallback publishedValueFallback)
-        => new(context.PublishedDocument ?? context.Document, publishedValueFallback, context.PropertyType, context.Request.Value);
+    public static BlockPreviewPublishedContent Create(BlockPreviewContext context)
+        => new(context.PublishedDocument ?? context.Document, context.PropertyType, context.Request.Value);
 
     public override IEnumerable<IPublishedProperty> Properties
         => base.Properties.Select(property => property.Alias == _previewProperty.Alias ? _previewProperty : property);
