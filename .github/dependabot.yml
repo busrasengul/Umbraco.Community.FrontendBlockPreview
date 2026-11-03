@@ -1,0 +1,57 @@
+# Checks for dependency updates on the 1st and 15th of each month and opens one pull request per ecosystem.
+# Each pull request is assigned to the maintainer (which sends an email) and runs the build.
+# Major versions are ignored, so the package stays on its Umbraco major (17).
+# When a v18 branch is created, copy these entries with target-branch: "v18".
+
+version: 2
+
+updates:
+  # NuGet: Umbraco.Cms.* (package and test site), central versions in src/Directory.Packages.props
+  - package-ecosystem: "nuget"
+    directory: "/src"
+    target-branch: "main"
+    schedule:
+      interval: "cron"
+      cronjob: "0 9 1,15 * *"
+      timezone: "Europe/London"
+    assignees: [ "busrasengul" ]
+    ignore:
+      - dependency-name: "*"
+        update-types: [ "version-update:semver-major" ]
+    groups:
+      v17-dependencies:
+        patterns: [ "*" ]
+    commit-message:
+      prefix: "v17"
+
+  # npm: the backoffice client (@umbraco-cms/backoffice, Vite, TypeScript)
+  - package-ecosystem: "npm"
+    directory: "/src/Umbraco.Community.FrontendBlockPreview/Client"
+    target-branch: "main"
+    schedule:
+      interval: "cron"
+      cronjob: "0 9 1,15 * *"
+      timezone: "Europe/London"
+    assignees: [ "busrasengul" ]
+    ignore:
+      - dependency-name: "*"
+        update-types: [ "version-update:semver-major" ]
+    groups:
+      v17-client:
+        patterns: [ "*" ]
+    commit-message:
+      prefix: "v17"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "main"
+    schedule:
+      interval: "cron"
+      cronjob: "0 9 1,15 * *"
+      timezone: "Europe/London"
+    assignees: [ "busrasengul" ]
+    groups:
+      v17-actions:
+        patterns: [ "*" ]
+    commit-message:
+      prefix: "v17"
