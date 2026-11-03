@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://www.nuget.org/packages/Umbraco.Community.FrontendBlockPreview"><img src="https://img.shields.io/nuget/v/Umbraco.Community.FrontendBlockPreview?label=NuGet&color=3544B1" alt="NuGet" /></a>
-  <img src="https://img.shields.io/badge/Umbraco-17-3544B1" alt="Umbraco 17" />
+  <img src="https://img.shields.io/badge/Umbraco-17%20%7C%2018-3544B1" alt="Umbraco 17 and 18" />
   <img src="https://img.shields.io/badge/license-MIT-F5C1BC" alt="MIT" />
 </p>
 
@@ -69,7 +69,20 @@ Your frontend renders the preview with its own components, styles, fonts and dat
 dotnet add package Umbraco.Community.FrontendBlockPreview
 ```
 
-Requires Umbraco 17 (.NET 10). Then pick a renderer in `appsettings.json`.
+Pick the package version that matches your Umbraco major:
+
+| Umbraco | Package version | Branch |
+|---|---|---|
+| 17 | 17.x | [`v17`](https://github.com/busrasengul/Umbraco.Community.FrontendBlockPreview/tree/v17) |
+| 18 | 18.x | [`v18`](https://github.com/busrasengul/Umbraco.Community.FrontendBlockPreview/tree/v18) |
+
+Both run on .NET 10. `dotnet add package` installs the newest version, so on an Umbraco 17 site ask for 17.x:
+
+```bash
+dotnet add package Umbraco.Community.FrontendBlockPreview --version "17.*"
+```
+
+Then pick a renderer in `appsettings.json`.
 
 ## Pick a renderer
 
@@ -616,6 +629,8 @@ The frontend runs on http://localhost:5173 and previews appear in the backoffice
 ## Contributing
 
 Issues and pull requests are welcome. The backoffice view is in `src/Umbraco.Community.FrontendBlockPreview/Client` (`npm install`, then `npm run build` or `npm run watch`).
+
+Each Umbraco major has its own branch (`v17`, `v18`); open pull requests against the branch for the major you're fixing. Releases are tagged from those branches (`17.x.x` from `v17`, `18.x.x` from `v18`). Dependabot keeps both branches up to date on the 1st and 15th of each month.
 
 ## License
 
